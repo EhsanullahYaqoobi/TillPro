@@ -1,17 +1,26 @@
 import React from "react";
 import Logo from "./Logo";
-import ItemPart from "./ItemPart";
-import { navigationItem } from "@/components/lib/type";
 import { FaBars } from "react-icons/fa6";
+import SidebarItem from "./SidebarItem";
+import { sidebarItems } from "@/components/lib/type";
 
-export default function Sidebar() {
+type SidebarProps = {
+  isOpen: boolean;
+  toggleSidebar: () => void; 
+}
+
+export default function Sidebar({isOpen, toggleSidebar}:SidebarProps) {
   return (
-    <div className={`w-64 bg-gray-200 pl-2 h-screen`}>
+    <div className={`transition-all duration-300 ease-in-out h-full z-10 rounded-t-2xl my-2 bg-gray-200 ${
+      isOpen ? "w-64" : "w-20"
+    }`}>
       <div className="flex justify-between items-center px-2 pb-10">
-        <Logo />
-        <FaBars className="cursor-pointer hover:bg-gray-800 hover:text-white hover:p-1 hover:text-xl hover:rounded-sm hover:font-semibold" />
+        <Logo isOpen={isOpen} title={"TillPro"} />
+        <FaBars className="text-xl cursor-pointer"  
+        onClick={toggleSidebar}
+        />
       </div>
-      <ItemPart navigation={navigationItem} />
+      <SidebarItem isOpen={isOpen} items={sidebarItems} />
     </div>
   );
 }

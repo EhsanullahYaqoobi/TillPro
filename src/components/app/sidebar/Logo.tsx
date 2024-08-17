@@ -1,12 +1,18 @@
 import React from "react";
 import { MdOutlineAccountBalanceWallet } from "react-icons/md";
-export default function Logo() {
+
+type LogoProps ={
+  title: string;
+  isOpen: boolean;
+}
+
+export default function Logo({title, isOpen}:LogoProps) {
   return (
-    <div className="flex items-center w-full gap-3 py-8">
+    <div className="flex items-center w-full gap-3 py-8 pl-2">
       <div className="flex items-center">
-      <MdOutlineAccountBalanceWallet className="text-2xl text-purple-400"/>
+      <MdOutlineAccountBalanceWallet className="text-2xl hover:text-purple-400 text-gray-600"/>
       </div>
-      <span className=" text-2xl font-bold leading-5 text-gray-700">TillPro</span>
+      {isOpen && <h2 className="text-lg font-bold text-gray-600">{title}</h2>}
     </div>
   );
 }

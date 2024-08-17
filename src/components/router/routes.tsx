@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import React from "react";
-import Dashboard from "@/components/app/dashboard.tsx/Dashboard";
-import PrintForm from "@/components/app/printform/PrintForm";
+import Dashboard from "@/components/app/dashboardPage/Dashboard";
+import PrintForm from "@/components/app/print/PrintForm";
 import PrintList from "@/components/app/printlist/PrintList";
 import InvoiceForm from "@/components/app/invoiceform/InvoiceForm";
 import InvoiceList from "@/components/app/invoicelist/InvoiceList";
